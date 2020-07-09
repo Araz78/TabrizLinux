@@ -1057,3 +1057,13 @@ a:link, a:visited {
 h3 {
     color: #000051;
 }
+
+h2 {
+    background: #9575cd;
+    color: #fff;
+}
+
+.selector-chosen h2 {
+    background: #9575cd;
+    color: #fff;
+}
