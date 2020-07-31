@@ -1,2 +1,9 @@
-My Home
-<p>{{user.get_full_name}}</p>
+{% extends 'registration/base.html' %}
+
+{% block title %}
+    لیست مقالات 
+{% endblock title %}
+
+{% block main %}
+    خوش آمدید {{user.get_full_name}}
+{% endblock main %}
