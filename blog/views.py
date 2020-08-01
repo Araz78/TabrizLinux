@@ -8,7 +8,7 @@ from .models import Article, Category
 
 class ArticleList(ListView):
     queryset = Article.objects.published()
-    paginate_by = 2
+    paginate_by = 5
 
 
 class ArticleDetail(DetailView):
@@ -18,7 +18,7 @@ class ArticleDetail(DetailView):
 
 
 class CategoryList(ListView):
-    paginate_by = 2
+    paginate_by = 5
     template_name = 'blog/category_list.html'
 
     def get_queryset(self):
@@ -33,7 +33,7 @@ class CategoryList(ListView):
         return context 
 
 class AuthorList(ListView):
-    paginate_by = 2
+    paginate_by = 5
     template_name = 'blog/author_list.html'
 
     def get_queryset(self):

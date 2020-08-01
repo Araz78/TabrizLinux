@@ -4,7 +4,7 @@ from ..models import Category
 register = template.Library()
 
 @register.simple_tag
-def title(data="تبریز اوبونتو"):
+def title(data="تبریز لینوکس"):
     return data
 
 @register.inclusion_tag("blog/partials/category_navbar.html")

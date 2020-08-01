@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Article, Category
 
 # Admin Header Change
-admin.site.site_header = "پنل مدیرت تبریز اوبونتو"
+admin.site.site_header = "پنل مدیرت تبریز لینوکس"
 # End Admin
 
 def make_published_article(modeladmin, request, queryset):
