@@ -10,6 +10,9 @@ class ArticleManager(models.Manager):
     def published(self):
         return self.filter(status="P")
 
+    def Drafted(self):
+        return self.filter(status="D")
+
 class CategoryManager(models.Manager):
     def active(self):
         return self.filter(status=True)
@@ -33,8 +36,10 @@ class Category(models.Model):
 
 class Article(models.Model):
     STATUS_CHOICE = (
-        ('D','پیش‌نویس'),
         ('P','منتشر‌شده'),
+        ('D','پیش‌نویس'),
+        ('I','در‌حال بررسی'),
+        ('B','رد‌شده'),
     )
     author      = models.ForeignKey(User , null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
     title       = models.CharField(max_length=30,verbose_name="عنوان مقاله")

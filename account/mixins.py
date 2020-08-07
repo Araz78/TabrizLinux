@@ -30,7 +30,7 @@ class FormValidMixin():
 class AuthorAccessMixin():
     def dispatch(self, request, pk, *args, **kwargs):
         article = get_object_or_404(Article, pk=pk)
-        if article.author == request.user and article.status =='D' or request.user.is_superuser:
+        if article.author == request.user and article.status in ['D','B'] or request.user.is_superuser:
             return super().dispatch(request, *args, **kwargs)
 
         else:
