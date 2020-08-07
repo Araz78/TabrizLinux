@@ -5,7 +5,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Article, Category
 #from django.http import HttpResponse
 
-
 class ArticleList(ListView):
     queryset = Article.objects.published()
     paginate_by = 5
