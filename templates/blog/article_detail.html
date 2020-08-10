@@ -11,6 +11,9 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
             <h1>{{object.title}}</h1>
+            {% if article.is_special %}
+              <span class="badge badge-warning" style="font-size: 14px;" >ویژه</span>
+            {% endif %}
             <time>{{object.jpublish}}</time>
           </div>
         </div>
@@ -27,7 +30,7 @@
             {% if user.is_special_user or user == object.author or user.is_superuser %}
               {{object.description|safe}}
             {% else %}
-              <p>این یک مقاله ویژه است برای مشاهده آن باید <a href="#">اشتراک ویژه </a>تهیه بکنید</p>
+              <p class="alert alert-warning">این یک مقاله ویژه است برای مشاهده آن باید <a class="alert-link" href="#">اشتراک ویژه </a>تهیه بکنید</p>
             {% endif %}
           {% else %}
             {{object.description|safe}}
