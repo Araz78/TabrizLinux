@@ -41,16 +41,17 @@ class Article(models.Model):
         ('I','در‌حال بررسی'),
         ('B','رد‌شده'),
     )
-    author      = models.ForeignKey(User , null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
-    title       = models.CharField(max_length=30,verbose_name="عنوان مقاله")
-    slug        = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
-    category    = models.ManyToManyField(Category, verbose_name="دسته‌بندی", related_name="articles")
-    description = models.TextField(verbose_name="محتوای مقاله")
-    thumbnail   = models.ImageField(upload_to="images",verbose_name="تصویر مقاله")
-    publish     = models.DateTimeField(default=timezone.now, verbose_name="تاریخ انتشار")
-    created     = models.DateTimeField(auto_now_add=True)
-    updated     = models.DateTimeField(auto_now=True)
-    status      = models.CharField(max_length=1, choices=STATUS_CHOICE, verbose_name="وضعیت")
+    author       = models.ForeignKey(User , null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
+    title        = models.CharField(max_length=30,verbose_name="عنوان مقاله")
+    slug         = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
+    category     = models.ManyToManyField(Category, verbose_name="دسته‌بندی", related_name="articles")
+    description  = models.TextField(verbose_name="محتوای مقاله")
+    thumbnail    = models.ImageField(upload_to="images",verbose_name="تصویر مقاله")
+    publish      = models.DateTimeField(default=timezone.now, verbose_name="تاریخ انتشار")
+    created      = models.DateTimeField(auto_now_add=True)
+    updated      = models.DateTimeField(auto_now=True)
+    is_special   = models.BooleanField(default=False, verbose_name="مقاله ویژه")
+    status       = models.CharField(max_length=1, choices=STATUS_CHOICE, verbose_name="وضعیت")
 
     class Meta:
         verbose_name = "مقاله"
