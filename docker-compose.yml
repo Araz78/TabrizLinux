@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+  tablin_postgresql:
+    image: postgres:12-alpine
+    container_name: tablin_postgresql
+    volumes:
+      - tablin_postgresql:/var/lib/postgresql/data
+    restart: always
+    env_file: .venv
+    ports:
+      - "5432:5432"
+    networks:
+      - tablin_network
+
+volumes:
+  tablin_postgresql:
+    external: true
+networks:
+  tablin_network:
+    external: true
