@@ -6,7 +6,7 @@ from .mixins import (
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from blog.models import Article
 from .models import User
 from .forms import ProfileForm
@@ -32,6 +32,9 @@ class ArticleDelete(SuperUserAccessMixin, DeleteView):
 	model 		  = Article
 	success_url   = reverse_lazy('account:home')
 	template_name = "registration/article_confirm_delete.html"
+
+class PurchaseSuccess(LoginRequiredMixin, TemplateView):
+	template_name = "registration/purchasepage.html"
 
 class Profile(LoginRequiredMixin, UpdateView):
 	model         = User

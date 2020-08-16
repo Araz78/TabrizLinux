@@ -1,0 +1,46 @@
+{% extends 'registration/base.html' %}
+
+{% load static %}
+
+{% block title %}{% block title-meta %}
+    خرید اشتراک ویژه
+{% endblock %}{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="{% static 'registration/purchase/css/purchasestyle.css' %}">
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title mb-0 float-left"> خرید اشتراک ویژه </h3>
+        </div>
+		<div class="card-body">
+			<div class="container">
+				<div class="box">
+					<h2>۱</h2>
+					<h3>اشتراک یک ماهه</h3>
+					<p>اشتراک ویژه یک ماهه تبریز لینوکس</p>
+					<a href="#"><h3>۱۰۰۰۰﷼</h3></a>
+				</div>
+				<div class="box">
+					<h2>۲</h2>
+					<h3>اشتراک سه ماهه</h3>
+					<p>اشتراک ویژه سه ماهه تبریز لینوکس</p>				
+					<a href="#"><h3>۲۵۰۰۰﷼</h3></a>
+				</div>
+				<div class="box">
+					<h2>۳</h2>
+					<h3>اشتراک شش ماهه</h3>
+					<p>اشتراک ویژه شش ماهه تبریز لینوکس</p>
+					<a href="#"><h3>۴۰۰۰۰﷼</h3></a>				
+				</div>
+				<div class="box">
+					<h2>۴</h2>
+					<h3>اشتراک یک ساله</h3>
+					<p>اشتراک ویژه یک ساله تبریز لینوکس</p>
+					<a href="#"><h3>۷۰۰۰۰﷼</h3></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock main %}

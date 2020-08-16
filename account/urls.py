@@ -1,6 +1,6 @@
 from django.contrib.auth import views
 from django.urls import path
-from .views import  ArticleList, ArticleCreate, ArticleUpdate, ArticleDelete, Profile, Login
+from .views import  ArticleList, ArticleCreate, ArticleUpdate, ArticleDelete, PurchaseSuccess, Profile, Login
 
 app_name = 'account'
 urlpatterns = [
@@ -21,5 +21,6 @@ urlpatterns += [
 	path('article/create', ArticleCreate.as_view(), name="article-create"),
 	path('article/update/<int:pk>', ArticleUpdate.as_view(), name="article-update"),
 	path('article/delete/<int:pk>', ArticleDelete.as_view(), name="article-delete"),
-	path('profile/', Profile.as_view(), name="profile"),	
+	path('profile/', Profile.as_view(), name="profile"),
+	path('purchase/', PurchaseSuccess.as_view(), name="purchase"),	
 ]

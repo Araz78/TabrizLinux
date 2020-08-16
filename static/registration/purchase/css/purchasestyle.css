@@ -1,0 +1,79 @@
+@import url('https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.css');
+body{
+	text-align: right !important;
+    direction: rtl !important;
+    font-family: Sahel !important;
+	font-weight: 400;
+  	line-height: 1.5;
+	color: #212529;
+  	text-align: right;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #ffffff;
+}
+
+.container
+{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.container .box
+{
+	position: relative;
+	background: #fff;
+	padding: 20px 40px 40px;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 20px;
+}
+.container .box:nth-child(1)
+{
+	background: linear-gradient(45deg,#e52d27,#b31217);	
+}
+.container .box:nth-child(2)
+{
+	background: linear-gradient(45deg,#1E9600,#FFF200);	
+}
+.container .box:nth-child(3)
+{
+	background: linear-gradient(45deg,#f12711,#f5af19);
+}
+.container .box:nth-child(4)
+{
+	background: linear-gradient(45deg,#c31432,#240b36);
+}
+.container .box h2
+{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-size: 100px;
+	color: #fff;
+	z-index: 1;
+	opacity: 0.4;
+}
+.container .box h3
+{
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	color: #fff;
+	text-transform: uppercase;
+}
+.container .box p
+{
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: #fff;
+}
+

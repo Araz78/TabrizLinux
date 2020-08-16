@@ -6,9 +6,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 <!-- Brand Logo -->
 <a href="{% url 'blog:home' %}" target="_blank" class="brand-link">
-    <i class="fab fa-linux"></i>
-    {% comment %} <img src="{% static 'registration/adminlte/assets/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-        style="opacity: .8"> {% endcomment %}
+    <img src="{% static 'registration/adminlte/mylogo/image/1.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        style="opacity: .8">
     <span class="brand-text ">تبریز لینوکس</span>
 </a>
 
@@ -48,6 +47,9 @@
                 </ul>
             </li>
         {% endif %}
+        <li class="nav-item">
+            {% link request 'purchase' 'خرید اشتراک ویژه' 'fas fa-store' %}
+        </li>
         <li class="nav-item">
             {% link request 'profile' 'پروفایل' 'fas fa-address-card' %}
         </li>

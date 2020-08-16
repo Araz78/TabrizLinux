@@ -1,9 +1,12 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from account.models import User
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from .models import Article, Category
 from account.mixins import AuthorAccessMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.defaults import page_not_found
+
 
 class ArticleList(ListView):
     queryset = Article.objects.published()

@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from .views import ArticleList, ArticleDetail, ArticlePreview, CategoryList, AuthorList
 
 app_name="blog"
 urlpatterns = [
     path('', ArticleList.as_view(), name="home"),
+    path('account/', include('account.urls')),
     path('page/<int:page>', ArticleList.as_view(), name="home"),
     path('article/<slug:slug>', ArticleDetail.as_view(), name="detail"),
     path('preview/<int:pk>', ArticlePreview.as_view(), name="preview"),

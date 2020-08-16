@@ -1,6 +1,9 @@
 {% extends 'blog/base.html' %}
 
+{% load static %}
+
 {% block title %} | {{object.title}} {% endblock %}
+<link rel="icon" type="image/png" href="{% static 'registration/adminlte/mylogo/image/Tabriz_Linux.png' %}">
 
 {% block main %}
  <!-- Page Header -->
@@ -30,7 +33,7 @@
             {% if user.is_special_user or user == object.author or user.is_superuser %}
               {{object.description|safe}}
             {% else %}
-              <p class="alert alert-warning">این یک مقاله ویژه است برای مشاهده آن باید <a class="alert-link" href="#">اشتراک ویژه </a>تهیه بکنید</p>
+              <p class="alert alert-warning">این یک مقاله ویژه است برای مشاهده آن باید <a class="alert-link" href="{% url 'account:purchase' %}">اشتراک ویژه </a>تهیه بکنید</p>
             {% endif %}
           {% else %}
             {{object.description|safe}}
