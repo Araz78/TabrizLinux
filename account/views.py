@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .mixins import (
-	FieldsMixin, FormValidMixin, AuthorAccessMixin, SuperUserAccessMixin, AuthorsAccessMixin
-	)
+from .mixins import FieldsMixin, FormValidMixin, AuthorAccessMixin, SuperUserAccessMixin, AuthorsAccessMixin
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from blog.models import Article
@@ -59,3 +57,6 @@ class Login(LoginView):
 		
 		else:
 			return reverse_lazy("account:profile")
+
+class PasswordChange(PasswordChangeView):
+	success_url	= reverse_lazy("account:password_change_done")
