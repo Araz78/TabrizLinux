@@ -16,8 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 LOGIN_REDIRECT_URL = "account:home"
-LOGIN_URL = "account:login"
-LOGOUT_REDIRECT_URL = "account:login"
+LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = "login"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -98,16 +99,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'account.validators.NumberValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'account.validators.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'account.validators.SymbolValidator',
     },
 ]
 
@@ -140,3 +141,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'account.User'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
