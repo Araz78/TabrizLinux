@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Ask_Ubuntu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': config('POSTGRES_ENGINE'),
         'NAME': config('POSTGRES_DB_NAME'),
         'USER': config('POSTGRES_USER'),
         'PASSWORD': config('POSTGRES_PASSWORD'),
