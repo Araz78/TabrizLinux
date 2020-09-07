@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'rest_framework',
+    'django_gravatar',
 ]
 
 MIDDLEWARE = [
