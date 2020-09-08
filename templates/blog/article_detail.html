@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load comment_tags %} 
+
 {% load static %}
 
 {% block title %} | {{object.title}} {% endblock %}
@@ -7,39 +9,43 @@
 
 {% block main %}
  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{object.thumbnail.url}}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>{{object.title}}</h1>
-            {% if article.is_special %}
-              <span class="badge badge-warning" style="font-size: 14px;" >ویژه</span>
-            {% endif %}
-            <time>{{object.jpublish}}</time>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+	<header class="masthead" style="background-image: url('{{object.thumbnail.url}}')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="site-heading">
+						<h1>{{object.title}}</h1>
+						{% if article.is_special %}
+							<span class="badge badge-warning" style="font-size: 14px;" >ویژه</span>
+						{% endif %}
+						<time>{{object.jpublish}}</time>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-  <!-- Post Content -->
-  <article>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto text-justify">
-          {% if object.is_special %}
-            {% if user.is_special_user or user == object.author or user.is_superuser %}
-              {{object.description|safe}}
-            {% else %}
-              <p class="alert alert-warning">این یک مقاله ویژه است برای مشاهده آن باید <a class="alert-link" href="{% url 'account:purchase' %}">اشتراک ویژه </a>تهیه بکنید</p>
-            {% endif %}
-          {% else %}
-            {{object.description|safe}}
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </article>
+	<!-- Post Content -->
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto text-justify">
+					{% if object.is_special %}
+						{% if user.is_special_user or user == object.author or user.is_superuser %}
+							{{object.description|safe}}
+						{% else %}
+							<p class="alert alert-warning">این یک مقاله ویژه است برای مشاهده آن باید <a class="alert-link" href="{% url 'account:purchase' %}">اشتراک ویژه </a>تهیه بکنید</p>
+						{% endif %}
+					{% else %}
+						{{object.description|safe}}
+					{% endif %}
+					
+					{% render_comments object request %}
+					{% include_static_jquery %}  
+					{% include_bootstrap %}
+				</div>
+			</div>
+		</div>
+	</article>
 {% endblock %}
